@@ -1,0 +1,27 @@
+.side-content {
+  position: sticky;
+  top: 6%;
+  right: 0;
+}
+
+.section-list a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #f1f1f1;
+  transition: 0.5s;
+}
+
+.section-list li {
+  padding-left: 0.5rem;
+  margin-top: 1rem;
+  display: inline;
+}
+
+.section-list .item-active {
+  border-left: 3px solid dodgerblue !important;
+  font-weight: bold;
+}
+
+.section-list a:hover {
+  color: dodgerblue;
+}
