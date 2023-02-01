@@ -19,7 +19,7 @@ export default function NavBar() {
 
   return (
     <header className="pb-5">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark-subtle fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary-subtle fixed-top">
         <div className="container-fluid px-4">
           <a className="navbar-brand" href="#problemas">
             App suporte
@@ -92,7 +92,8 @@ export default function NavBar() {
             </ul>
             <SearchBar />
             <button
-              className="btn btn-outline-success rounded-pill"
+              className="btn rounded-pill"
+              style={{backgroundColor: 'rgb(255,95,31)', color:'#ffff'}}
               data-bs-toggle="modal"
               data-bs-target="#addMessageModal"
             >

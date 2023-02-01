@@ -15,10 +15,14 @@ export default function QuickMsgModal({ sections }) {
     const { messageTitle, messageContent, id } = quickMessage;
 
     return (
-      <div key={id}>
-        <div className="fw-bold">{messageTitle}</div>
-        <p style={{ whiteSpace: "pre-line", userSelect: "all" }}>{messageContent}</p>
-      </div>
+      <li className="list-group-item d-flex justify-content-between align-items-start">
+        <div className="ms-2 me-auto">
+          <div key={id}>
+            <div className="fw-bold">{messageTitle}</div>
+            <p style={{ whiteSpace: "pre-line", userSelect: "all" }}>{messageContent}</p>
+          </div>      
+        </div>
+      </li>
     )
   }
   return (
@@ -31,16 +35,12 @@ export default function QuickMsgModal({ sections }) {
     >
       <div>
         <ul
-          className="list-group list-group-flush"
+          className="list-group"
           id="quickMessagesList"
         >
-          <li className="list-group-item d-flex justify-content-between align-items-start">
-            <div className="ms-2 me-auto">
-              {
-                mapQuickMessages().map(renderQuickMessageList)
-              }
-            </div>
-          </li>
+          {
+            mapQuickMessages().map(renderQuickMessageList)
+          }
         </ul>
       </div>
     </Modal>

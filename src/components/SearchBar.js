@@ -38,6 +38,7 @@ export default function SearchBar() {
       <input
         className="form-control me-2 dropdown-toggle"
         type="search"
+        data-bs-theme="light"
         placeholder="Pesquisar"
         aria-label="Search"
         onChange={(e) => setFilterMessages(searchMessages(e.target.value))}

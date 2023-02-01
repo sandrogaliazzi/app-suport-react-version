@@ -27,11 +27,11 @@ export default function Card({ messageContent, messageTitle, id, setCardId }) {
   }
 
   return (
-    <div className="card my-card bg-dark-subtle" style={{
+    <div className="card my-card bg-body-tertiary" style={{
       height: "40vh"
     }}>
       <div className="card-header d-flex justify-content-between align-items-center">
-        <h5 className="card-title d-block text-muted text-capitalize fst-italic">{messageTitle}#</h5>
+        <h5 className="card-title d-block text-capitalize fst-italic">{messageTitle}#</h5>
         <div className="d-flex">
           <div className="dropdown">
             <button className="btn dropdown-toggle d-flex" href="#" data-bs-toggle="dropdown" aria-expanded="false">
