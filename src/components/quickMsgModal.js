@@ -15,9 +15,9 @@ export default function QuickMsgModal({ sections }) {
     const { messageTitle, messageContent, id } = quickMessage;
 
     return (
-      <li className="list-group-item d-flex justify-content-between align-items-start">
+      <li className="list-group-item d-flex justify-content-between align-items-start" key={id}>
         <div className="ms-2 me-auto">
-          <div key={id}>
+          <div>
             <div className="fw-bold">{messageTitle}</div>
             <p style={{ whiteSpace: "pre-line", userSelect: "all" }}>{messageContent}</p>
           </div>      

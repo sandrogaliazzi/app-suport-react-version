@@ -1,7 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 
 export default function NavBar() {
+
+  const [name, setName] = useState("");
+  const [pppoe, setPppoe] = useState("");
+  const [parksNameFormat, setParksNameFormat] = useState("");
 
   const modalRef = useRef(null)
 
@@ -15,6 +19,25 @@ export default function NavBar() {
     if (event.shiftKey && event.key.toLocaleLowerCase() === "d") {
       modalRef.current.click();
     }
+  }
+
+  function handleForm(event) {
+    event.preventDefault();
+
+    const splittedName = name.split(" ");
+
+    const firstName = splittedName[0];
+    const lastName = splittedName[splittedName.length -1];
+    const pppoeFormat = `${firstName}${lastName}fibra`.toLocaleLowerCase();
+
+    setPppoe(
+      prev => prev = pppoeFormat
+    )
+
+    setParksNameFormat(
+      prev => prev = name.split(" ").join("-").toUpperCase()
+    )
+    
   }
 
   return (
@@ -48,33 +71,20 @@ export default function NavBar() {
                 >
                   Mais
                 </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a className="dropdown-item" href="#aplicativos">
-                      Aplicativos
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#pós-suporte">
-                      Pós suporte
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#upgrade">
-                      Upgrade
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#bloqueio">
-                      Bloqueio
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#outros">
-                      Outros
-                    </a>
-                  </li>
-                </ul>
+                <form className="dropdown-menu p-3" style={{minWidth:"300px"}}>
+                  <div className="mb-3">
+                    <input type="text" className="form-control" id="name" placeholder="Nome" value={name} 
+                      onChange={event => setName(event.target.value)} 
+                      onKeyUp={handleForm}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input type="text" className="form-control" id="pppoe" value={pppoe} placeholder="PPPOE" readOnly/>
+                  </div>
+                  <div className="mb-3">
+                    <input type="text" className="form-control" id="parksName" value={parksNameFormat} placeholder="Formato Parks" readOnly/>
+                  </div>
+                </form>
               </li>
               <li className="nav-item">
                 <a
